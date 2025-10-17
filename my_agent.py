@@ -1,9 +1,10 @@
+#imports
 import asyncio
 
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
 from langgraph.prebuilt import create_react_agent
-
+#client with name of server, address, and connection type
 client = MultiServerMCPClient(
     {
         "census_bureau": {
@@ -12,7 +13,7 @@ client = MultiServerMCPClient(
         }
     }
 )
-
+#must be wrapped in async function to call mcp server
 async def main():
     tools = await client.get_tools()
 
